@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COSMO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&icon_names=pause_circle,play_circle" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/sections/gallery.css" />
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/MorphSVGPlugin.min.js"></script>
+  <script src="https://assets.codepen.io/16327/ScrollSmoother.min.js"></script>
+  <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+</head>
+<body>
+  <div id="intro">
+    <div id="intro-content">
+      <canvas id="ascii-canvas"></canvas>
+      <canvas id="glitch-r"></canvas>
+      <canvas id="glitch-b"></canvas>
+      <img id="intro-logo" src="/assets/images/logo/kozmo3.png" alt="">
+    </div>
+  </div>
+  <div id="smooth-wrapper">
+    <div class="small-player play">
+      <div class="icon">
+        <span class="pause material-symbols-rounded">
+          pause_circle
+        </span>
+        <span class="play material-symbols-rounded">
+          play_circle
+        </span>
+      </div>
+      <span class="current-track">Into the Sun</span>
+    </div>
+    <div id="smooth-content">
+      <div class="gallery">
+        <div class="camera">
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+          <div class="layer"></div>
+        </div>
+        <div id="logo">
+          <img src="/assets/images/logo/kozmo3.png" alt="">
+        </div>
+      </div>
+      <div id="player-container">  
+        <div class="player-wrapper">
+          <div id="album-art">
+            <div class="player">
+              <svg id="cd-svg" viewBox="0 0 100 100" width="300" height="300">
+
+                <!-- morph 대상 shape들 (숨김) -->
+                <path id="shape-square" d="M10 10 H90 V90 H10 Z M50 49.999 H50.001 V50.001 H49.999 Z" fill-rule="evenodd" style="display:none;" />
+                <path id="shape-cd" d="
+                  M50 10
+                  C72 10, 90 28, 90 50
+                  C90 72, 72 90, 50 90
+                  C28 90, 10 72, 10 50
+                  C10 28, 28 10, 50 10 Z
+
+                  M50 43
+                  C53.866 43, 57 46.134, 57 50
+                  C57 53.866, 53.866 57, 50 57
+                  C46.134 57, 43 53.866, 43 50
+                  C43 46.134, 46.134 43, 50 43 Z
+                " fill-rule="evenodd" style="display:none;" />
+
+                <defs>
+                  <clipPath id="clip">
+                    <path id="shape" fill-rule="evenodd" clip-rule="evenodd"/>
+                  </clipPath>
+
+
+                </defs>
+
+                <!-- 앨범 아트 -->
+                <image
+                  href="/assets/images/albumart.png"
+                  width="100" height="100"
+                  preserveAspectRatio="xMidYMid slice"
+                  clip-path="url(#clip)"
+                />
+
+                <!-- CD 질감 레이어 -->
+                <g clip-path="url(#clip)">
+
+                  <!-- 홈(groove) 동심원 -->
+                  <g fill="none" stroke="rgba(0,0,0,0.14)" stroke-width="0.35">
+                    <circle cx="50" cy="50" r="37"/>
+                    <circle cx="50" cy="50" r="35"/>
+                    <circle cx="50" cy="50" r="33"/>
+                    <circle cx="50" cy="50" r="31"/>
+                    <circle cx="50" cy="50" r="29"/>
+                    <circle cx="50" cy="50" r="27"/>
+                    <circle cx="50" cy="50" r="25"/>
+                    <circle cx="50" cy="50" r="23"/>
+                    <circle cx="50" cy="50" r="21"/>
+                    <circle cx="50" cy="50" r="19"/>
+                    <circle cx="50" cy="50" r="17"/>
+                    <circle cx="50" cy="50" r="15"/>
+                  </g>
+
+                </g>
+
+                <!-- 중앙 허브 (플라스틱 링) -->
+                <circle cx="50" cy="50" r="13" fill="rgba(175, 175, 175, 0.68)" clip-path="url(#clip)"/>
+
+              </svg>
+              <div class="cd-sheen-overlay"></div>
+            </div>
+          </div>
+          <div id="album-desc">
+            <div class="title">
+              <h2>Sleep Tight, Ya Goddamn Morons!!</h2>
+              <p>2007</p>
+            </div>
+            <div class="tracks">
+              <p class="active">Into the Sun</p>
+              <p>Mint</p>
+              <p>Sweet Infinity</p>
+              <p>Midriff Mistress</p>
+              <p>Oppositionally Defiant Back Talk Blue</p>
+              <p>Hey Lefty</p>
+              <p>The Pill Song (Over the Counter)</p>
+              <p>The Khao San Rd. Song</p>
+              <p>Moon Smiles On Old Siam</p>
+              <p>Wags</p>
+              <p>The Pill Song (Prescription Strength)</p>
+              <p>Luca Brasi</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="live">
+    <div id="deco-gradient"></div>
+    <div class="schedule">
+      <div>
+        <p>Live On 03.21</p>
+        <h3>whatever studio in HONGDAE</h3>
+      </div>
+      <div>
+        <p>Live On 03.21</p>
+        <h3>Hello World festival</h3>
+      </div>
+    </div>
+    <div class="ask">
+      <p class="no-drag ">wanna Contact Us?</p>
+      <p class="no-drag ">Are you NAKED in Shower?</p>
+    </div>
+    
+  </div>
+  <div>
+  </div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

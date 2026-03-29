@@ -1,0 +1,45 @@
+#scene {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0a0a0a;
+  overflow: hidden;
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* layer-0 이 가장 앞, layer-5 가 가장 뒤 */
+#layer-0 { z-index: 6; }
+#layer-1 { z-index: 5; }
+#layer-2 { z-index: 4; }
+#layer-3 { z-index: 3; }
+#layer-4 { z-index: 2; }
+#layer-5 { z-index: 1; }
+
+.layer img {
+  display: block;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.scene-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  object-fit: cover;
+  will-change: transform, opacity;
+  transform-origin: center center;
+  pointer-events: none;
+  user-select: none;
+}
