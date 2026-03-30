@@ -39,7 +39,7 @@ function initGSAP() {
     const layerIndex = index % layers.length;
     const img = document.createElement('img');
     img.crossOrigin = 'anonymous';
-    img.src = `/assets/images/${file}`;
+    img.src = `assets/images/${file}`;
     img._widthRatio = gsap.utils.random(0.20, 0.40);
     img._xRatio     = gsap.utils.random(-1.5, 2.5);
     img._yRatio     = gsap.utils.random(-2, 2);
@@ -403,7 +403,7 @@ function initGSAP() {
 
 document.querySelector('.live .ask p:last-child').addEventListener('click', () => {
   const img = document.createElement('img');
-  img.src = '/assets/images/beavis-and-butthead-headbanging.gif';
+  img.src = 'assets/images/beavis-and-butthead-headbanging.gif';
   img.style.cssText = 'position:fixed;z-index:9999;pointer-events:none;top:0;left:0;';
   document.body.appendChild(img);
 
